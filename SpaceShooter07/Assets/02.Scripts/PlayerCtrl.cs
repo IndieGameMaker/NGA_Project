@@ -23,6 +23,7 @@ public class PlayerCtrl : MonoBehaviour
        Debug.Log("h=" + h);
 
        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
+       //벡터.normalized  => 정규화 벡터값(크기가 1인 벡터)
        tr.Translate(dir.normalized * Time.deltaTime * 3.0f);
 
     //    tr.Translate(Vector3.forward * v * Time.deltaTime * 3.0f);
