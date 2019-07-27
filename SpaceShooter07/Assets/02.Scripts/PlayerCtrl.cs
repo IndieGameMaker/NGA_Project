@@ -6,6 +6,7 @@ public class PlayerCtrl : MonoBehaviour
 {
     private Transform tr;
     public float moveSpeed = 5.0f;
+    public float rotSpeed  = 60.0f;
 
     void Start()
     {
