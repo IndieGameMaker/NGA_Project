@@ -20,6 +20,7 @@ public class PlayerCtrl : MonoBehaviour
     {
        float v = Input.GetAxis("Vertical");     // -1.0f ~ 0.0f ~ +1.0f //상하 화살표키
        float h = Input.GetAxis("Horizontal");   // -1.0f ~ 0.0f ~ +1.0f //좌우 화살표키
+       float r = Input.GetAxis("Mouse X");      //마우스를 X축으로 이동했을 때의 값
 
        Debug.Log("v=" + v); //Console View 텍스트 출력
        Debug.Log("h=" + h);
@@ -28,6 +29,9 @@ public class PlayerCtrl : MonoBehaviour
        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
        //벡터.normalized  => 정규화 벡터값(크기가 1인 벡터)
        tr.Translate(dir.normalized * Time.deltaTime * moveSpeed);
+
+        //회전로직
+        tr.Rotate(Vector3.up * Time.deltaTime * rotSpeed * r);
 
     //    tr.Translate(Vector3.forward * v * Time.deltaTime * 3.0f);
     //    tr.Translate(Vector3.right * h * Time.deltaTime * 3.0f);
