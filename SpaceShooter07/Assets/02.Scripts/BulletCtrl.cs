@@ -12,9 +12,4 @@ public class BulletCtrl : MonoBehaviour
         rb.AddRelativeForce(Vector3.forward * 1200.0f);        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
