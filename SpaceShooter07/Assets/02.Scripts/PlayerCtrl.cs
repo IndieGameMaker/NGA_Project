@@ -15,7 +15,7 @@ public class PlayerAnim
 public class PlayerCtrl : MonoBehaviour
 {
     private Transform tr;
-    private Animation anim;
+    private Animation anim;
     public PlayerAnim playerAnim; //파스칼 표기법 - 변수명을 선언
 
     public float moveSpeed = 5.0f;
