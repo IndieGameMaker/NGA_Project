@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     private Transform tr;
+    public float moveSpeed = 5.0f;
 
     void Start()
     {
@@ -22,9 +23,10 @@ public class PlayerCtrl : MonoBehaviour
        Debug.Log("v=" + v); //Console View 텍스트 출력
        Debug.Log("h=" + h);
 
+        //이동로직
        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
        //벡터.normalized  => 정규화 벡터값(크기가 1인 벡터)
-       tr.Translate(dir.normalized * Time.deltaTime * 3.0f);
+       tr.Translate(dir.normalized * Time.deltaTime * moveSpeed);
 
     //    tr.Translate(Vector3.forward * v * Time.deltaTime * 3.0f);
     //    tr.Translate(Vector3.right * h * Time.deltaTime * 3.0f);
