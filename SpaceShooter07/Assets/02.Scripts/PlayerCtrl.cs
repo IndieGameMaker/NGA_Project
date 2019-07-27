@@ -50,18 +50,27 @@ public class PlayerCtrl : MonoBehaviour
         //회전로직
         tr.Rotate(Vector3.up * Time.deltaTime * rotSpeed * r);
 
-    //    tr.Translate(Vector3.forward * v * Time.deltaTime * 3.0f);
-    //    tr.Translate(Vector3.right * h * Time.deltaTime * 3.0f);
-
-       /* 단위벡터, 유닛벡터, 정규화벡터 : 방향만을 가리키는 벡터 (크기 1인 벡터)
-       Vector3.forward = Vector3(0, 0, 1)
-       Vector3.up      = Vector3(0, 1, 0)
-       Vector3.right   = Vector3(1, 0, 0)
-
-       Vector3.one     = Vector3(1, 1, 1)
-       Vector3.zero    = Vector3(0, 0, 0)       
-       */
-
+        //애니메이션 처리
+        if (v >= 0.1f) //Up Arrow 전진
+        {
+            anim.CrossFade(playerAnim.runForward.name, 0.3f);
+        }
+        else if (v <= -0.1f) //Down Arrow 후진
+        {
+            anim.CrossFade(playerAnim.runBackward.name, 0.3f);
+        }
+        else if (h >= 0.1f)  //Right Arrow 오른쪽
+        {
+            anim.CrossFade(playerAnim.runRight.name, 0.3f);
+        }
+        else if (h <= -0.1f) //Left Arrow 왼쪽
+        {
+            anim.CrossFade(playerAnim.runLeft.name, 0.3f);
+        }
+        else
+        {
+            anim.CrossFade(playerAnim.idle.name, 0.3f);
+        }
 
 
     }
