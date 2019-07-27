@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//주인공 캐릭터가 사용할 애니메이션 클립을 저장할 클래스 선언
+public class PlayerAnim
+{
+    public AnimationClip idle;
+    public AnimationClip runForward;
+    public AnimationClip runBackward;
+    public AnimationClip runLeft;
+    public AnimationClip runRight;
+}
+
 public class PlayerCtrl : MonoBehaviour
 {
     private Transform tr;
+    private Animation anim;
+    public PlayerAnim playerAnim; //파스칼 표기법 - 변수명을 선언
+
     public float moveSpeed = 5.0f;
     public float rotSpeed  = 60.0f;
 
     void Start()
     {
         //PlayerCtrl 스크립트가 포함된 게임오브젝트의 Transform 컴퍼넌트를 추출해서 할당
-        //tr = this.gameObject.GetComponent<Transform>();
         tr = GetComponent<Transform>();  //컴포넌트의 캐쉬
+        anim = GetComponent<Animation>(); //Animation 컴포넌트 캐취 처리(변수에 할당)
     }
 
     //매 프레임마다 호출 

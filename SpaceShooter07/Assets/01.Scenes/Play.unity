@@ -528,9 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e8101817d9e45a683fddf886fd5225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 12986882}
-  distance: 3.78
-  height: 1.7
+  target: {fileID: 2118958017}
+  distance: 3.83
+  height: -0.22
   rotationDamping: 3
   heightDamping: 3
 --- !u!1 &1491714631
@@ -693,6 +693,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a2d1f85112644278982a5f4a315869, type: 3}
+--- !u!1 &2118958016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118958017}
+  m_Layer: 0
+  m_Name: CamPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118958017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118958016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 12986882}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5115722794834948160
 PrefabInstance:
   m_ObjectHideFlags: 0
