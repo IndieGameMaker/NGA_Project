@@ -1,6 +1,14 @@
-Base path: /Applications/Unity/Hub/Editor/2019.1.8f1/Unity.app/Contents
+Base path: /Applications/Unity/Hub/Editor/2019.1.10f1/Unity.app/Contents
 Cmd: initializeCompiler
-Cmd: compileSnippet
-  api=14 type=1 insize=11846 outsize=11914 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
-
-Quitting shader compiler process
+Cmd: compileComputeKernel
+  api=14 insize=2134 outsize=789 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=841 outsize=785 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=7289 outsize=11297 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=9421 outsize=9621 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=9381 outsize=16189 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=2953 outsize=2021 ok=1
