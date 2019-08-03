@@ -9,6 +9,19 @@ public class BarrelCtrl : MonoBehaviour
     public GameObject expEffect;
     public AudioClip expSfx;
 
+    [SerializeField]
+    private MeshRenderer renderer;
+
+    public Texture[] textures;
+
+    void Start()
+    {
+        renderer = GetComponentInChildren<MeshRenderer>();
+
+        int idx = Random.Range(0, textures.Length); //int (0,3) --> 0, 1, 2
+        renderer.material.mainTexture = textures[idx];
+    }
+
     void OnCollisionEnter(Collision coll)
     {
         if (coll.collider.CompareTag("BULLET"))
