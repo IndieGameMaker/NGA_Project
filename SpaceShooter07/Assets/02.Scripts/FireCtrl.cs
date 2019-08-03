@@ -9,10 +9,13 @@ public class FireCtrl : MonoBehaviour
     public AudioClip fireSfx;   //총소리 오디오 클립을 저장할 변수
 
     private AudioSource source;
+    private MeshRenderer muzzleFlash;
 
     void Start()
     {
         source = GetComponent<AudioSource>();
+        muzzleFlash = transform.Find("FirePos/MuzzleFlash").GetComponent<MeshRenderer>();
+        muzzleFlash.enabled = false;
     }
 
     void Update()
