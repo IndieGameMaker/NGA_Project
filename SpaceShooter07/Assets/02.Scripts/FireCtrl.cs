@@ -33,5 +33,17 @@ public class FireCtrl : MonoBehaviour
         Instantiate(bullet, firePos.position, firePos.rotation);
         //총소리 발생 (소리를 중첩해서 발생)
         source.PlayOneShot(fireSfx);
+        StartCoroutine(ShowMuzzleFlash());
+    }
+
+    IEnumerator ShowMuzzleFlash()
+    {
+        //총구화염을 활성화
+        muzzleFlash.enabled = true;
+
+        yield return new WaitForSeconds(0.2f);
+
+        //총구화몀을 비활성화
+        muzzleFlash.enabled = false;
     }
 }
