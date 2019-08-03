@@ -38,6 +38,19 @@ public class FireCtrl : MonoBehaviour
 
     IEnumerator ShowMuzzleFlash()
     {
+        //텍스처를 변경 Offset
+        float offsetX = (float)Random.Range(0,2) * 0.5f; //0.0, 0.5
+        float offsetY = (float)Random.Range(0,2) * 0.5f; //0.0, 0.5
+
+        muzzleFlash.material.SetTextureOffset("_MainTex", new Vector2(offsetX, offsetY));
+
+        //MuzzleFlash 회전로직
+        float angle = Random.Range(0.0f, 360.0f); //0.0f ~ 360.0f
+        muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, angle);
+        //MuzzleFlash 스케일
+        float scale = Random.Range(1.0f, 3.0f);
+        muzzleFlash.transform.localScale = Vector3.one * scale;
+        
         //총구화염을 활성화
         muzzleFlash.enabled = true;
 
