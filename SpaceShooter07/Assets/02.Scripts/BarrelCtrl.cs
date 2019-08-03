@@ -19,7 +19,7 @@ public class BarrelCtrl : MonoBehaviour
 
     public void ExpBarrel()
     {
-        if (GetComponent<Rigidbody>() != null)
+        if (GetComponent<Rigidbody>() == null)
         {
             Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
             rb.AddForce(Vector3.up * 1500.0f);
