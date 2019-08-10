@@ -112,6 +112,19 @@ public class MonsterCtrl : MonoBehaviour
         {
             Destroy(coll.gameObject);
             anim.SetTrigger(hashHit);
+            hp -= 20.0f;
+            if (hp <= 0.0f)
+            {
+                MonsterDie();
+            }
         }
+    }
+
+    void MonsterDie()
+    {
+        StopAllCoroutines();
+        agent.isStopped = true;
+        GetComponent<CapsuleCollider>().enabled = false;
+        anim.SetTrigger(hashDie);
     }
 }
