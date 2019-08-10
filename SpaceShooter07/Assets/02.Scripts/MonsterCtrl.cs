@@ -78,12 +78,17 @@ public class MonsterCtrl : MonoBehaviour
                     break;
 
                 case State.TRACE:
-                    anim.SetBool("isTrace", true);//Walk Animation으로 전이
+                    //Attack Animation으로 진입했을 경우 다시 Walk 변경하기 위해
+                    anim.SetBool("isAttack", false);
+                    //Walk Animation으로 전이 
+                    anim.SetBool("isTrace", true);
                     agent.SetDestination(playerTr.position);
                     agent.isStopped = false;
                     break;
 
                 case State.ATTACK:
+                    anim.SetBool("isAttack", true);
+                    agent.isStopped = true;
                     break;
 
                 case State.DIE:
