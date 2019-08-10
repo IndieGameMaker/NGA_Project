@@ -27,6 +27,7 @@ public class MonsterCtrl : MonoBehaviour
     {
         monsterTr = GetComponent<Transform>();
         playerTr  = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
+        StartCoroutine(CheckMonsterState());
     }
 
     //몬스터의 상태만 체크
