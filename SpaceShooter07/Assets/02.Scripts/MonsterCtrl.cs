@@ -58,4 +58,13 @@ public class MonsterCtrl : MonoBehaviour
         }
     }
 
+    //몬스터의 상태값에 따른 몬스터의 행동을 정의
+    IEnumerator MonsterAction()
+    {
+        while(!isDie)
+        {
+            
+            yield return ws;
+        }
+    }
 }
