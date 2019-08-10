@@ -78,7 +78,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.CompareTag("PUNCH"))
+        if (hp > 0.0f && coll.CompareTag("PUNCH"))
         {
             Debug.Log(coll.gameObject.name);
             hp -= 10.0f;
@@ -91,6 +91,11 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
-        Debug.Log("Player Die");
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+        foreach(var monster in monsters)
+        {
+            //monster.GetComponent<MonsterCtrl>().PlayerDie();
+            monster.SendMessage("PlayerDie",SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
