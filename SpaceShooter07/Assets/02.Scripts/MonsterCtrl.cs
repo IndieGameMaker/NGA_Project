@@ -24,6 +24,7 @@ public class MonsterCtrl : MonoBehaviour
     private Transform monsterTr;
     private Transform playerTr;
     private NavMeshAgent agent;
+
     private WaitForSeconds ws;
 
     void Start()
@@ -70,10 +71,12 @@ public class MonsterCtrl : MonoBehaviour
             switch(state)
             {
                 case State.IDLE:
+                    agent.isStopped = true;
                     break;
 
                 case State.TRACE:
-                    //Navigation
+                    agent.SetDestination(playerTr.position);
+                    agent.isStopped = false;
                     break;
 
                 case State.ATTACK:
