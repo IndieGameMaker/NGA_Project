@@ -29,6 +29,7 @@ public class MonsterCtrl : MonoBehaviour
     //Hashtable에서 미리 파라메터값을 검색
     private int hashTrace  = Animator.StringToHash("isTrace");
     private int hashAttack = Animator.StringToHash("isAttack");
+    private int hashHit    = Animator.StringToHash("Hit");
 
     private WaitForSeconds ws;
 
@@ -107,7 +108,7 @@ public class MonsterCtrl : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject);
-            
+            anim.SetTrigger(hashHit);
         }
     }
 }
