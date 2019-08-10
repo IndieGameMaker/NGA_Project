@@ -24,6 +24,7 @@ public class MonsterCtrl : MonoBehaviour
     private Transform monsterTr;
     private Transform playerTr;
     private NavMeshAgent agent;
+    private Animator anim;
 
     private WaitForSeconds ws;
 
@@ -32,6 +33,7 @@ public class MonsterCtrl : MonoBehaviour
         ws = new WaitForSeconds(0.3f);
 
         agent = GetComponent<NavMeshAgent>();
+        anim  = GetComponent<Animator>();
         monsterTr = GetComponent<Transform>();
         playerTr  = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         StartCoroutine(CheckMonsterState());
@@ -71,10 +73,12 @@ public class MonsterCtrl : MonoBehaviour
             switch(state)
             {
                 case State.IDLE:
+                    anim.SetBool("isTrace", false);
                     agent.isStopped = true;
                     break;
 
                 case State.TRACE:
+                    anim.SetBool("isTrace", true);//Walk Animation으로 전이
                     agent.SetDestination(playerTr.position);
                     agent.isStopped = false;
                     break;
