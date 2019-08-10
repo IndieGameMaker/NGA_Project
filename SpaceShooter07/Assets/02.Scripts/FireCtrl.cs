@@ -33,6 +33,7 @@ public class FireCtrl : MonoBehaviour
                                 , 1<<8))            //검출 레이어
             {
                 Debug.Log(hit.collider.name);
+                hit.collider.GetComponent<MonsterCtrl>().Damage(10.0f);
             }
             Fire();
         }
@@ -41,7 +42,7 @@ public class FireCtrl : MonoBehaviour
     void Fire()
     {
         //동적 총알(Bullet)을 생성 (생성할 객체, 위치, 회전)
-        //Instantiate(bullet, firePos.position, firePos.rotation);
+        Instantiate(bullet, firePos.position, firePos.rotation);
         //총소리 발생 (소리를 중첩해서 발생)
         source.PlayOneShot(fireSfx);
         StartCoroutine(ShowMuzzleFlash());
