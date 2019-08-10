@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class PlayerCtrl : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float rotSpeed  = 60.0f;
 
+    public float hp = 100.0f;
+
     void Start()
     {
         //PlayerCtrl 스크립트가 포함된 게임오브젝트의 Transform 컴퍼넌트를 추출해서 할당
@@ -39,8 +42,8 @@ public class PlayerCtrl : MonoBehaviour
        float h = Input.GetAxis("Horizontal");   // -1.0f ~ 0.0f ~ +1.0f //좌우 화살표키
        float r = Input.GetAxis("Mouse X");      //마우스를 X축으로 이동했을 때의 값
 
-       Debug.Log("v=" + v); //Console View 텍스트 출력
-       Debug.Log("h=" + h);
+    //    Debug.Log("v=" + v); //Console View 텍스트 출력
+    //    Debug.Log("h=" + h);
 
         //이동로직
        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
@@ -71,8 +74,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             anim.CrossFade(playerAnim.idle.name, 0.3f);
         }
-
-
     }
 
     void OnTriggerEnter(Collider coll)
@@ -80,6 +81,16 @@ public class PlayerCtrl : MonoBehaviour
         if (coll.CompareTag("PUNCH"))
         {
             Debug.Log(coll.gameObject.name);
+            hp -= 10.0f;
+            if (hp <= 0.0f)
+            {
+                PlayerDie();
+            }
         }
+    }
+
+    void PlayerDie()
+    {
+        Debug.Log("Player Die");
     }
 }
