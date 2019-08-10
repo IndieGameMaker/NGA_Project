@@ -11,6 +11,8 @@ public class FireCtrl : MonoBehaviour
     private AudioSource source;
     private MeshRenderer muzzleFlash;
 
+    private RaycastHit hit;
+
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -24,6 +26,13 @@ public class FireCtrl : MonoBehaviour
         //마우스 왼쪽 버튼을 한번 클릭했을 때
         if (Input.GetMouseButtonDown(0))
         {
+            if (Physics.Raycast(  firePos.position
+                                , firePos.forward
+                                , out hit
+                                , 10.0f ))
+            {
+                Debug.Log(hit.collider.name);
+            }
             Fire();
         }
     }
