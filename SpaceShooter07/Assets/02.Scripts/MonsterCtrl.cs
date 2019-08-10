@@ -63,7 +63,20 @@ public class MonsterCtrl : MonoBehaviour
     {
         while(!isDie)
         {
-            
+            switch(state)
+            {
+                case State.IDLE:
+                    break;
+
+                case State.TRACE:
+                    break;
+
+                case State.ATTACK:
+                    break;
+
+                case State.DIE:
+                    break;
+            }
             yield return ws;
         }
     }
