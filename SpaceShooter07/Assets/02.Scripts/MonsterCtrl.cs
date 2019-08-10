@@ -26,6 +26,10 @@ public class MonsterCtrl : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
 
+    //Hashtable에서 미리 파라메터값을 검색
+    private int hashTrace  = Animator.StringToHash("isTrace");
+    private int hashAttack = Animator.StringToHash("isAttack");
+
     private WaitForSeconds ws;
 
     void Start()
@@ -73,21 +77,21 @@ public class MonsterCtrl : MonoBehaviour
             switch(state)
             {
                 case State.IDLE:
-                    anim.SetBool("isTrace", false);
+                    anim.SetBool(hashTrace, false);
                     agent.isStopped = true;
                     break;
 
                 case State.TRACE:
                     //Attack Animation으로 진입했을 경우 다시 Walk 변경하기 위해
-                    anim.SetBool("isAttack", false);
+                    anim.SetBool(hashAttack, false);
                     //Walk Animation으로 전이 
-                    anim.SetBool("isTrace", true);
+                    anim.SetBool(hashTrace, true);
                     agent.SetDestination(playerTr.position);
                     agent.isStopped = false;
                     break;
 
                 case State.ATTACK:
-                    anim.SetBool("isAttack", true);
+                    anim.SetBool(hashAttack, true);
                     agent.isStopped = true;
                     break;
 
