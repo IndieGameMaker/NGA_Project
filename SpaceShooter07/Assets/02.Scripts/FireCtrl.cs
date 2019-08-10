@@ -26,10 +26,11 @@ public class FireCtrl : MonoBehaviour
         //마우스 왼쪽 버튼을 한번 클릭했을 때
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(  firePos.position
-                                , firePos.forward
-                                , out hit
-                                , 10.0f ))
+            if (Physics.Raycast(  firePos.position  //광선의 발사원점
+                                , firePos.forward   //발사방향
+                                , out hit           //결괏값
+                                , 10.0f             //광선의 거리
+                                , 1<<8))            //검출 레이어
             {
                 Debug.Log(hit.collider.name);
             }
