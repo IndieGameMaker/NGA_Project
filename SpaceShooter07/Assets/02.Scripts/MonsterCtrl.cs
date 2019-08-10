@@ -23,16 +23,35 @@ public class MonsterCtrl : MonoBehaviour
     private Transform monsterTr;
     private Transform playerTr;
 
-    // Start is called before the first frame update
     void Start()
     {
         monsterTr = GetComponent<Transform>();
         playerTr  = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //몬스터의 상태만 체크
+    IEnumerator CheckMonsterState()
     {
-        
+        while(!isDie)
+        {
+            yield return new WaitForSeconds(0.3f);
+
+            float dist = Vector3.Distance(monsterTr.position, playerTr.position);
+            //몬스터와 주인공간의 거리가 공격사정거리 이내인 경우
+            if (dist <= attackDist)
+            {
+                state = State.ATTACK;
+            }
+            //공격사정거리보다 크고 추적사정거리 이내인 경우
+            else if (dist <= traceDist)
+            {
+                state = State.TRACE;
+            }
+            else
+            {
+                state = State.IDLE;
+            }
+        }
     }
+
 }
