@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterCtrl : MonoBehaviour
 {
@@ -22,12 +23,14 @@ public class MonsterCtrl : MonoBehaviour
 
     private Transform monsterTr;
     private Transform playerTr;
+    private NavMeshAgent agent;
     private WaitForSeconds ws;
 
     void Start()
     {
         ws = new WaitForSeconds(0.3f);
 
+        agent = GetComponent<NavMeshAgent>();
         monsterTr = GetComponent<Transform>();
         playerTr  = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         StartCoroutine(CheckMonsterState());
