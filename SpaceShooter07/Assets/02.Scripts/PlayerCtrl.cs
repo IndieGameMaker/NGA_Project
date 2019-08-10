@@ -86,7 +86,6 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (hp > 0.0f && coll.CompareTag("PUNCH"))
         {
-            Debug.Log(coll.gameObject.name);
             hp -= 10.0f;
             if (hp <= 0.0f)
             {
