@@ -36,6 +36,18 @@ public class MonsterCtrl : MonoBehaviour
 
     private WaitForSeconds ws;
 
+    void OnEnable()
+    {
+        //이벤트의 연결
+        PlayerCtrl.OnPlayerDie += this.PlayerDie;
+    }
+
+    void OnDisable()
+    {
+        //이벤트의 연결을 해지
+        PlayerCtrl.OnPlayerDie -= this.PlayerDie;
+    }
+
     void Start()
     {
         ws = new WaitForSeconds(0.3f);

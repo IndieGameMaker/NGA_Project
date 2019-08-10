@@ -17,6 +17,12 @@ public class PlayerAnim
 
 public class PlayerCtrl : MonoBehaviour
 {
+    //델리게이트(함수포인터)
+    public delegate void PlayerDieHandler();
+    //이벤트를 정의 (선언)
+    public static event PlayerDieHandler OnPlayerDie;
+
+
     private Transform tr;
     private Animation anim;
     public PlayerAnim playerAnim; //파스칼 표기법 - 변수명을 선언
@@ -91,11 +97,15 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
+        //이벤트 발생(Raise)
+        OnPlayerDie();
+        /*
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
         foreach(var monster in monsters)
         {
             //monster.GetComponent<MonsterCtrl>().PlayerDie();
             monster.SendMessage("PlayerDie",SendMessageOptions.DontRequireReceiver);
         }
+        */
     }
 }
