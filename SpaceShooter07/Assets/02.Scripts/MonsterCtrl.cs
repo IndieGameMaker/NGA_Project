@@ -22,9 +22,12 @@ public class MonsterCtrl : MonoBehaviour
 
     private Transform monsterTr;
     private Transform playerTr;
+    private WaitForSeconds ws;
 
     void Start()
     {
+        ws = new WaitForSeconds(0.3f);
+
         monsterTr = GetComponent<Transform>();
         playerTr  = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         StartCoroutine(CheckMonsterState());
@@ -35,7 +38,7 @@ public class MonsterCtrl : MonoBehaviour
     {
         while(!isDie)
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return ws;
 
             float dist = Vector3.Distance(monsterTr.position, playerTr.position);
             //몬스터와 주인공간의 거리가 공격사정거리 이내인 경우
